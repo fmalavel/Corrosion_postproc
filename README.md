@@ -61,5 +61,5 @@ The code relies on [iris scitool](https://scitools-iris.readthedocs.io/en/stable
 
 ## Ressources and information
 HadUK-GRID [data description](https://www.metoffice.gov.uk/research/climate/maps-and-data/data/haduk-grid/haduk-grid).  
-HadUK-GRID [data access](https://catalogue.ceda.ac.uk/uuid/4dc8450d889a491ebb20e724debe2dfb).  
+HadUK-GRID [data access on CEDA](https://catalogue.ceda.ac.uk/uuid/4dc8450d889a491ebb20e724debe2dfb).  
 AQUM [standard jobs](https://code.metoffice.gov.uk/trac/nwpscience/wiki/ResearchSuites/AQUM).  
