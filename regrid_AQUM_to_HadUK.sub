@@ -1,0 +1,45 @@
+#!/bin/bash -l
+#SBATCH --mem=50G
+#SBATCH --ntasks=1
+#SBATCH --partition=rhel7
+#SBATCH --time=360
+#SBATCH --export=NONE
+#SBATCH --output=regrid_log.out
+set -eu
+
+# Check:
+# 1 year
+# 2 domain
+# 3 averaging
+
+echo -e "Launching python regrid_AQUM_to_HadUK.sub on `date`\n"
+
+module load scitools
+
+mkdir -p Regridded_outputs
+
+#------------------
+# use monthly fields
+#------------------
+#aqum_path='/data/users/fmalavel/AQUM/PROJECT/Corrosion_Scotland/verification'
+#aqum_filename='2022met_2019ems_gridded_cube_list_monthly_mean.nc'
+
+#------------------
+# use hourly fields
+#------------------
+#aqum_path='/data/users/fmalavel/AQUM/PROJECT/Corrosion_Scotland/verification/2017_mi-bf350'
+#aqum_filename='2017met_2019ems_gridded_cube_list.nc'
+
+aqum_path='/data/users/fmalavel/AQUM/PROJECT/Corrosion_Scotland/verification/2022_mi-bf351'
+aqum_filename='2022met_2019ems_gridded_cube_list.nc'
+
+#------------------
+# run python script
+#------------------
+python regrid_AQUM_to_HadUK.py ${aqum_path} ${aqum_filename}
+#python regrid_AQUM_to_HadUK.py 
+
+echo -e "\nFinished on `date`"
+
+mkdir -p logs
+mv regrid_log.out logs/regrid_log_`date '+%Y-%m-%d_at_%H:%M:%S'`.out
